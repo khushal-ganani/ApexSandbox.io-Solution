@@ -1,6 +1,6 @@
 public Integer nextPrime(Integer num) {
     //code here
-    Integer nextPrimeNumber = Math.abs(num);
+    Integer nextPrimeNumber = num>0 ? num : 1;
     while (true) {
         nextPrimeNumber++;
         Boolean isPrime = true;
