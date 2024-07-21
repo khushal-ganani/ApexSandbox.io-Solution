@@ -1,8 +1,21 @@
 public String reverseWordsInASentence(String sentence){
-    //your flawless code here
-    String reversedSentence;
-    for (Integer i = sentence.length(); i>0; i--) {
-        reversedSentence += sentence.charAt((i-1));
+    // Trim the sentence to remove any leading or trailing spaces
+    sentence = sentence.trim();
+    
+    // Split the sentence into words
+    List<String> words = sentence.split(' ');
+    
+    // Reverse the list of words
+    List<String> reversedWords = new List<String>();
+    for (Integer i = words.size() - 1; i >= 0; i--) {
+        // Add non-empty words to avoid multiple spaces issue
+        if (!words[i].isEmpty()) {
+            reversedWords.add(words[i]);
+        }
     }
+    
+    // Join the reversed list of words back into a sentence
+    String reversedSentence = String.join(reversedWords, ' ');
+    
     return reversedSentence;
 }
