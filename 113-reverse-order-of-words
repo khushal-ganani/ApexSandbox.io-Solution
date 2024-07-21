@@ -2,7 +2,7 @@ public String reverseWordsInASentence(String sentence){
     //your flawless code here
     String reversedSentence;
     for (Integer i = sentence.length(); i>0; i--) {
-        reversedSentence += sentence.charAt(i);
+        reversedSentence += sentence.charAt(i-1);
     }
     return reversedSentence;
 }
