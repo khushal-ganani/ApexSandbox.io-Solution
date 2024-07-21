@@ -6,6 +6,6 @@ public String registerStudent(String name, String phone, String email) {
     record.apxio__Email__c = email;
     insert record;
     Id newRecordId = record.Id;
-    apxio__Student__c newRecord = [SELECT apxio__Registration_Number__c FROM apxio__Student__c WHERE Id = newRecordId LIMIT 1];
+    apxio__Student__c newRecord = [SELECT apxio__Registration_Number__c FROM apxio__Student__c WHERE Id IN newRecordId LIMIT 1];
     return newRecord.apxio__Registration_Number__c;
 }
