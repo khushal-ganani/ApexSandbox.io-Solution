@@ -1,5 +1,5 @@
 public void createCourseAndClass(String name, String description) {
-    if (!String.isBlank(name) && !String.isBlank(description)) {
+    if (!String.isBlank(name)) {
         // insert parent apxio__Course__c record
         apxio__Course__c course = new apxio__Course__c();
         course.Name = name;
