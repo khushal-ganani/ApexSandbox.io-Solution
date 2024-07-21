@@ -11,7 +11,7 @@ public Id classFromCourse(String courseName) {
 
         return newClass.Id;
     } catch (QueryException e) {
-        System.debug('No student found with Id: ' + studentId);
+        System.debug('No course found with Name: ' + courseName);
         return null;
     }
     
