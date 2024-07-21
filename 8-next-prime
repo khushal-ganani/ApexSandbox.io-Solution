@@ -2,22 +2,17 @@ public Integer nextPrime(Integer num) {
     //code here
     Integer nextPrimeNumber;
     for (Integer i = num+1; i++) {
-        count = i;
-        if(isPrime(count)) {
+        nextPrimeNumber = i;
+        Boolean isPrime = true;
+        for (Integer i = 2; i<num; i++) {
+            if (Math.mod(num, i) == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        if (isPrime) {
             break;
         }
     }
     return nextPrimeNumber;
-}
-
-public static Boolean isPrime(Integer num) {
-    //code here
-    Boolean isPrime = true;
-    for (Integer i = 2; i<num; i++) {
-        if (Math.mod(num, i) == 0) {
-            isPrime = false;
-            break;
-        }
-    }
-    return isPrime;
 }
