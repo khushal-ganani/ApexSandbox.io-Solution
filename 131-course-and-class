@@ -1,0 +1,16 @@
+public void createCourseAndClass(String name, String description) {
+    if (!String.isBlank(name) && !String.isBlank(description)) {
+        // insert parent apxio__Course__c record
+        apxio__Course__c course = new apxio__Course__c();
+        course.Name = name;
+        course.apxio__Description__c = description;
+        insert course;
+
+        // insert child apxio__Class__c record related to inserted course
+        apxio__Class__c childClass = new apxio__Class__c();
+        childClass.Name = name;
+        childClass.apxio__Description__c = description.left(255);
+        childClass.apxio__Course__c = course.Id;
+        insert childClass;
+    }
+}
