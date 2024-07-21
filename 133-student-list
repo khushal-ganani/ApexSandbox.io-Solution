@@ -1,10 +1,20 @@
 public void insertStudents(List<String> studentNames, List<String> studentEmails) {
-    List<apxio__Student__c> students = new List<apxio__Student__c>();
-    for (Integer i = 0; i<studentEmails.size(); i++) {
-        students.add(new apxio__Student__c(
-            Name = studentNames[i];
-            apxio__Email__c = studentEmails[i];
-        ));
-    }
-    insert students;
+    // Ensure the lists have the same size
+        if (studentNames.size() != studentEmails.size()) {
+            throw new IllegalArgumentException('The lists studentNames and studentEmails must have the same size.');
+        }
+        
+        // Create a list to hold the student records
+        List<apxio__Student__c> studentsToInsert = new List<apxio__Student__c>();
+
+        // Loop over the provided lists and create student records
+        for (Integer i = 0; i < studentNames.size(); i++) {
+            apxio__Student__c newStudent = new apxio__Student__c();
+            newStudent.Name = studentNames[i];
+            newStudent.apxio__Email__c = studentEmails[i];
+            studentsToInsert.add(newStudent);
+        }
+
+        // Perform a single DML operation to insert all the records at once
+        insert studentsToInsert;
 }
