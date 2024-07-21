@@ -1,0 +1,12 @@
+public Id classFromCourse(String courseName) {
+    // code here
+    apxio__Course__c matchingCourse = [SELECT Id, Name FROM apxio__Course__c WHERE Name = :courseName LIMIT 1];
+    
+    // Creating new class associated with the course
+    apxio__Class__c newClass = new apxio__Class__c();
+    newClass.Name = matchingCourse.Name;
+    newClass.apxio__Course__c = matchingCourse.Id;
+    insert newClass;
+
+    return newClass.Id;
+}
