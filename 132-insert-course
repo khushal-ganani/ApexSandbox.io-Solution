@@ -6,7 +6,7 @@ public Id insertCourse(String name, String details, Integer credits) {
         apxio__Course__c record = new apxio__Course__c();
         record.Name = name;   
         record.apxio__Course_Details__c = details;   
-        record.apxio__Credits__c = credits;
+        record.apxio__Credits__c = String.valueOf(credits);
         insert record;
         return record.Id;   
     }
