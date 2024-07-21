@@ -1,11 +1,17 @@
 public String ageGroup(Integer n) {
-    if (n>=0 && n<=1) {
-        return 'Infant';
-    } else if (n>=2 && n<=14) {
-        return 'Child';
-    } else if (n>=15 && n<=21) {
-        return 'Youth';
-    } else if (n>=22) {
-        return 'Adult';
+    if (n == null) {
+        return 'Invalid Age';
     }
+    if (n >= 0 && n <= 1) {
+        return 'Infant';
+    } else if (n >= 2 && n <= 14) {
+        return 'Child';
+    } else if (n >= 15 && n <= 21) {
+        return 'Youth';
+    } else if (n >= 22) {
+        return 'Adult';
+    } else {
+        return 'Invalid Age'; // This handles any negative input values
+    }
+}
 }
