@@ -5,6 +5,7 @@ public String registerStudent(String name, String phone, String email) {
     record.apxio__Phone__c = phone;
     record.apxio__Email__c = email;
     insert record;
-    apxio__Student__c newRecord = [SELECT apxio__Registration_Number__c FROM apxio__Student__c WHERE Id IN :record.Id];
+    Integer newRecordId = record.Id
+    apxio__Student__c newRecord = [SELECT apxio__Registration_Number__c FROM apxio__Student__c WHERE Id IN :newRecordId];
     return newRecord.apxio__Registration_Number__c;
 }
